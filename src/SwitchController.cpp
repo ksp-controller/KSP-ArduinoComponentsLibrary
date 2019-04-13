@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "SwitchController.h"
 
-SwitchController::SwitchController(int rPin, int confPin, int confPin2, IntersectionController* delegate)
+SwitchController::SwitchController(int rPin, int confPin, int confPin2)
 {
   _rPin = rPin;
   _rPreviousValue = -1;
@@ -9,7 +9,6 @@ SwitchController::SwitchController(int rPin, int confPin, int confPin2, Intersec
   _confPreviousValue = -1;
   _confPin2 = confPin2;
   _conf2PreviousValue = -1;
-  _delegate = delegate;
   //Initialize
   pinMode(_rPin, INPUT);
   pinMode(_confPin, INPUT);
@@ -28,7 +27,7 @@ void SwitchController::_readNewValues()
     int _rRead = digitalRead(_rPin);
     if (_rPreviousValue != _rRead) {
       _rPreviousValue = _rRead;
-      _delegate->changeIntersectionLockState((bool) _rRead);
+      //_delegate->changeIntersectionLockState((bool) _rRead);
     }
 
 
@@ -47,7 +46,7 @@ void SwitchController::_readNewValues()
     }
     if (anyConfChanges) {
       //Generate struct from conf
-      IntersectionParameters params = IntersectionParamFromConfs(_confRead, _conf2Read);
-      _delegate->changeIntersectionTimingParameters(params);
+      //IntersectionParameters params = IntersectionParamFromConfs(_confRead, _conf2Read);
+      //_delegate->changeIntersectionTimingParameters(params);
     }
 }
