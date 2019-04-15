@@ -30,7 +30,7 @@ void LightController::setState(int state) {
 void LightController::_reloadStates()
 {
     int lightState = (_state == BLINK ? _blinkState : _state);
-    analogWrite(_pin, lightState);
+    digitalWrite(_pin, lightState);
 }
 void LightController::_blink()
 {
@@ -41,6 +41,6 @@ void LightController::_blink()
   if (millis() - _blinkStamp >= LightBlinkInterval) {
     _blinkStamp = millis();
     _blinkState = SwapStates(_blinkState);
-    analogWrite(_pin, _blinkState);
+    digitalWrite(_pin, _blinkState);
   }
 }
