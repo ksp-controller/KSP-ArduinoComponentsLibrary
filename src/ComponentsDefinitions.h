@@ -1,5 +1,5 @@
-#ifndef CompDefinitions_h
-#define CompDefinitions_h
+#ifndef ComponentsDefinitions_h
+#define ComponentsDefinitions_h
 #include "Arduino.h"
 
 #define LightBlinkInterval 200
@@ -9,5 +9,7 @@
 #define ON_BLINK 255 //definition of a ON BLINKING LIGHT
 #define OFF_BLINK 5 //definition of a OFF BLINKING LIGHT
 #define SwapStates(current) (current == ON_BLINK ? OFF_BLINK : ON_BLINK)
-
+//Potentiometer
+#define POTEN_MIN 30 //leave gap
+#define POTEN_MAX 1010 //leave gap
 #endif

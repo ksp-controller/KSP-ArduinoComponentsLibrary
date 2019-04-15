@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "LightController.h"
-#include "Definitions.h"
+#include "ComponentsDefinitions.h"
 
 LightController::LightController(uint8_t pin)
 {
@@ -12,7 +12,7 @@ LightController::LightController(uint8_t pin)
   _blinkState = ON_BLINK;
   _state = OFF;
   // reload current state
-  _reloadStates();
+  this->_reloadStates();
 }
 void LightController::loop()
 {

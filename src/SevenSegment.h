@@ -4,9 +4,9 @@ class SevenSegment{
         void fullDisplay(int num);
     private:
         void displayDigit(int num);
-        boolean commonHigh = true;   
+        boolean commonHigh = true;
         int startLED;
-        int digStart;   
+        int digStart;
         int dig[11] = {
         0b1111110,//0
         0b0110000,//1
