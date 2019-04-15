@@ -12,4 +12,8 @@
 //Potentiometer
 #define POTEN_MIN 30 //leave gap
 #define POTEN_MAX 1010 //leave gap
+//Joystick
+#define JOY_MIN 100
+#define JOY_MAX 950
+
 #endif
