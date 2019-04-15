@@ -6,8 +6,12 @@ LCD::LCD(uint8_t pin)
 {
   _pin = pin;
   _currentSerial = new SoftwareSerial(0, _pin);
-  _currentSerial->begin(9600);
+  _currentSerial->begin(LCD_BAUDRATE);
   delay(500);
+  // ESP8266 internal cache RAM needs warm up - allow write and ISR to load
+  _currentSerial->write(static_cast<uint8_t>(0));
+  for (char ch = ' '; ch <= 'z'; ch++) _currentSerial->write(ch);
+  _currentSerial->println("");
   clearDisplay();
 }
 void LCD::writeOnLine(String message, int line)
